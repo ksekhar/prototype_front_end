@@ -22,8 +22,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+  $httpProvider.defaults.withCredentials = true;
   $stateProvider
+
+  .state('login', {
+      url: '/login',
+      templateUrl: 'authentication/login.html',
+      controller: 'LoginCtrl'
+  })
 
     .state('app', {
     url: '/app',
@@ -69,5 +76,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  // $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/login');
 });
