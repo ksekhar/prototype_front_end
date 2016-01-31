@@ -1,3 +1,11 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
 .msg-blk {
     /* width: 90%; */
     margin: 10px 5px;
@@ -21,4 +29,23 @@ ul.error-listing{
 li {
   display: list-item;
   list-style-position: inside;
+}
+
+.main-cat-list {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #31708f;
+    margin: 10px 5px 10px 5px;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    display: inline-table;
+    vertical-align: middle;
+}
+
+.main-cat-main-blk {
+    margin: 24px 27px 20px 10px;
 }

@@ -32,6 +32,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
+  .state('app.home', {
+    url: '/home',
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/home.html',
+        controller: 'HomeCtrl'
+      }
+    }
+  })
+
   .state('app.customer_login', {
     url: '/customer_login',
     cache: false,
@@ -94,4 +105,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   });
+  $urlRouterProvider.otherwise("/app/home");
 });

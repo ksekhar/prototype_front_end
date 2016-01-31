@@ -41,6 +41,10 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('HomeCtrl', function($scope, $http) {
+  $scope.mainCategories = ['ELECTRICITY', 'HANDYMAN', 'PLUMBING', 'CARPENTERING'];
+})
+
 .controller('UserMgmtCtrl', function($scope, $http) {
   $scope.loginData = {};
   $scope.doLogin = function() {
