@@ -49,3 +49,14 @@ li {
 .main-cat-main-blk {
     margin: 24px 27px 20px 10px;
 }
+
+.angucomplete-holder {
+    margin: 23px 35px 10px 35px;
+    padding: 7px;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+}

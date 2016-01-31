@@ -43,6 +43,8 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl', function($scope, $http) {
   $scope.mainCategories = ['ELECTRICITY', 'HANDYMAN', 'PLUMBING', 'CARPENTERING'];
+  $scope.categories = [{category: 'Plumbing'}, {category: 'Carpenting'}, {category: 'Cleaning'}, {category: 'Flooring'}, 
+                        {category: 'Moulding'}, {category: 'Drying'}, {category: 'Sizing'}]
 })
 
 .controller('UserMgmtCtrl', function($scope, $http) {

@@ -1,5 +1,18 @@
 <ion-view view-title="Home">  
   <ion-content>
+
+  	<div class="auto-completer">
+	  	<angucomplete-alt id="ex1"
+	              placeholder="Search for Category"
+	              pause="100"
+	              selected-object="selectedCategory"
+	              local-data="categories"
+	              search-fields="category"
+	              title-field="category"
+	              minlength="1"
+	              input-class="form-control form-control-small"/>
+  	</div>
+
   	<div class='main-cat-main-blk'>
 	  	<div class="row main-cat-row">
 		  <div class="col col-50 main-cat-list cat-odd">ELECTRICITY</div>
