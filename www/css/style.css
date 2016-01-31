@@ -1,1 +1,24 @@
-/* Empty. Add your own CSS if you like */
+.msg-blk {
+    /* width: 90%; */
+    margin: 10px 5px;
+    padding: 10px 25px;
+}
+
+.error-msg {
+	background: #ffecec;
+    border: 1px solid #f5aca6;
+}
+
+.success-msg {
+	background: #e9ffd9;
+	border:1px solid #a6ca8a;
+}
+
+ul.error-listing{
+	list-style-type: circle;
+}
+
+li {
+  display: list-item;
+  list-style-position: inside;
+}

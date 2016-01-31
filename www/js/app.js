@@ -23,24 +23,40 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 })
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
-  $httpProvider.defaults.withCredentials = true;
   $stateProvider
-
-  .state('login', {
-      url: '/login',
-      templateUrl: 'authentication/login.html',
-      controller: 'LoginCtrl'
-  })
-
-    .state('app', {
+  .state('app', {
     url: '/app',
+    cache: false,
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
 
+  .state('app.customer_login', {
+    url: '/customer_login',
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'js/authentication/login.html',
+        controller: 'UserMgmtCtrl'
+      }
+    }
+  })
+
+  .state('app.customer_register', {
+    url: '/customer_register',
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/customer_register.html',
+        controller: 'UserMgmtCtrl'
+      }
+    }
+  })
+
   .state('app.search', {
     url: '/search',
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/search.html'
@@ -50,6 +66,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   .state('app.browse', {
       url: '/browse',
+      cache: false,
       views: {
         'menuContent': {
           templateUrl: 'templates/browse.html'
@@ -58,6 +75,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
     .state('app.playlists', {
       url: '/playlists',
+      cache: false,
       views: {
         'menuContent': {
           templateUrl: 'templates/playlists.html',
@@ -68,6 +86,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   .state('app.single', {
     url: '/playlists/:playlistId',
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',
@@ -75,7 +94,4 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   });
-  // if none of the above states are matched, use this as the fallback
-  // $urlRouterProvider.otherwise('/app/playlists');
-  $urlRouterProvider.otherwise('/login');
 });

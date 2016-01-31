@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
   $scope.loginData = {};
 
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
+  $ionicModal.fromTemplateUrl('templates/customer_login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
@@ -30,7 +30,7 @@ angular.module('starter.controllers', [])
   };
 
   // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
+  $scope.doLogin1 = function() {
     console.log('Doing login', $scope.loginData);
 
     // Simulate a login delay. Remove this and replace with your login
@@ -41,16 +41,31 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
+.controller('UserMgmtCtrl', function($scope, $http) {
+  $scope.loginData = {};
+  $scope.doLogin = function() {
+    console.log($scope.loginData);
+     $http.post('http://localhost:3000/users/login', {email : $scope.loginData.username, password: $scope.loginData.password})
+     .then(function (res) {
+            $scope.response = res.data;
+            console.log($scope.response);
+            $scope.success = $scope.response.success;
+        });
+  }
+  $scope.registerData = {}
+  $scope.doRegister = function() {
+    console.log($scope.registerData);
+     $http.post('http://localhost:3000/users', {email : $scope.loginData.email, username: $scope.loginData.username, 
+                                                      first_name: $scope.loginData.first_name, last_name: $scope.loginData.last_name,
+                                                      password: $scope.loginData.password, 
+                                                      password_confirm: $scope.loginData.password_confirm})
+     .then(function (res) {
+            $scope.response = res.data;
+            console.log($scope.response);
+            $scope.success = $scope.response.success;
+            $scope.errors = $scope.response.errors;
+        });
+  }
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+})
+;
