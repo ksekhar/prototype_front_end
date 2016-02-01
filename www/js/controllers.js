@@ -61,10 +61,10 @@ angular.module('starter.controllers', [])
   $scope.registerData = {}
   $scope.doRegister = function() {
     console.log($scope.registerData);
-     $http.post('http://localhost:3000/users', {email : $scope.loginData.email, username: $scope.loginData.username, 
-                                                      first_name: $scope.loginData.first_name, last_name: $scope.loginData.last_name,
-                                                      password: $scope.loginData.password, 
-                                                      password_confirm: $scope.loginData.password_confirm})
+     $http.post('http://localhost:3000/users', {email : $scope.registerData.email, username: $scope.registerData.username, 
+                                                      first_name: $scope.registerData.first_name, last_name: $scope.registerData.last_name,
+                                                      password: $scope.registerData.password, 
+                                                      password_confirmation: $scope.registerData.password_confirm})
      .then(function (res) {
             $scope.response = res.data;
             console.log($scope.response);
