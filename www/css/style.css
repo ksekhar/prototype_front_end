@@ -6,6 +6,31 @@ body {
     background-color: #fff;
 }
 
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .button {
+    background-color: #edf3f7 !important;
+    font-size: 16px;
+    color: #000000 !important;
+    font-weight: normal !important;
+}
+
+.clear-both{
+    clear: both;
+}
+.pad-left-1em{
+    padding-left: 1em;
+}
+.float-left {
+    float: left;
+}
+
+.width-full {
+    width: 100%;
+}
+
+.float-right {
+    float: right;
+}
+
 .msg-blk {
     /* width: 90%; */
     margin: 10px 5px;
@@ -39,11 +64,12 @@ li {
     padding: 10px;
     border: 1px solid transparent;
     border-radius: 10px;
-    height: 120px;
+    height: 150px;
     line-height: 120px;
     text-align: center;
-    display: inline-table;
+    /*display: inline-table;*/
     vertical-align: middle;
+    width: 44% !important;
 }
 
 .main-cat-main-blk {
@@ -51,12 +77,19 @@ li {
 }
 
 .angucomplete-holder {
-    margin: 23px 35px 10px 35px;
+    /*margin: 23px 35px 10px 35px;*/
     padding: 7px;
-    background-color: #ffffff;
+    background-color: #edf3f7;
     border-color: #ccc;
     border-color: rgba(0, 0, 0, 0.2);
     border-style: solid;
     border-width: 1px;
     border-radius: 5px;
+}
+
+.width-40perc {
+    width: 40%;
+}
+.width-50perc {
+    width: 50%;
 }

@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', "angucomplete-alt"])
+angular.module('starter', ["ngCookies", 'ionic', 'starter.projects.services', 'starter.user.services', 'starter.controllers', 'starter.authentication.controllers', "starter.projects.controllers", "angucomplete-alt", 'ionic-datepicker', 'ionic-timepicker'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -26,7 +26,6 @@ angular.module('starter', ['ionic', 'starter.controllers', "angucomplete-alt"])
   $stateProvider
   .state('app', {
     url: '/app',
-    cache: false,
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
@@ -45,24 +44,36 @@ angular.module('starter', ['ionic', 'starter.controllers', "angucomplete-alt"])
 
   .state('app.customer_login', {
     url: '/customer_login',
-    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'js/authentication/login.html',
-        controller: 'UserMgmtCtrl'
+        controller: 'AuthenticationCtrl'
       }
     }
   })
 
   .state('app.customer_register', {
     url: '/customer_register',
-    cache: false,
     views: {
       'menuContent': {
-        templateUrl: 'templates/customer_register.html',
-        controller: 'UserMgmtCtrl'
+        templateUrl: 'js/authentication/register.html',
+        controller: 'AuthenticationCtrl'
       }
     }
+  })
+
+  .state('projects', {
+    url: '/projects',
+    abstract: true,
+    template: '<ion-nav-view/>',
+    controller: 'ProjectsCtrl'
+  })
+
+  .state('projects.new', {
+    url: '/new',
+    params: {'selectedCategory': null},
+    templateUrl: 'js/projects/templates/new.html',
+    controller: 'ProjectsCtrl'
   })
 
   .state('app.search', {
@@ -106,4 +117,49 @@ angular.module('starter', ['ionic', 'starter.controllers', "angucomplete-alt"])
     }
   });
   $urlRouterProvider.otherwise("/app/home");
+})
+
+.directive('standardTimeMeridian', function() {
+  return {
+    restrict: 'AE',
+    replace: true,
+    scope: {
+      etime: '=etime'
+    },
+    template: "<strong>{{stime}}</strong>",
+    link: function(scope, elem, attrs) {
+
+      scope.stime = epochParser(scope.etime, 'time');
+
+      function prependZero(param) {
+        if (String(param).length < 2) {
+          return "0" + String(param);
+        }
+        return param;
+      }
+
+      function epochParser(val, opType) {
+        if (val === null) {
+          return "00:00";
+        } else {
+          var meridian = ['AM', 'PM'];
+
+          if (opType === 'time') {
+            var hours = parseInt(val / 3600);
+            var minutes = (val / 60) % 60;
+            var hoursRes = hours > 12 ? (hours - 12) : hours;
+
+            var currentMeridian = meridian[parseInt(hours / 12)];
+
+            return (prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian);
+          }
+        }
+      }
+
+      scope.$watch('etime', function(newValue, oldValue) {
+        scope.stime = epochParser(scope.etime, 'time');
+      });
+
+    }
+  };
 });

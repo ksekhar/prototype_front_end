@@ -1,0 +1,120 @@
+.project-header2{
+
+}
+.project-main-blk {
+    margin: 20px 20px 20px 20px;
+}
+
+.text-center-align {
+	text-align: center;
+}
+
+.project-header1 {
+    padding-bottom: 18px;
+}
+
+.project-header2 {
+    border-bottom: 1px dotted #cccccc;
+    padding-bottom: 10px;
+}
+
+.project-header2-part1 {
+    font-weight: 300;
+    color: #0D4D94;
+    font-size: 1.75rem !important;
+}
+
+.project-fields {
+	/*padding-top: 20px;*/
+}
+
+.project-input-blk {
+	padding-top: 24px;
+	clear: both;
+}
+
+.project-input-label {
+	padding-bottom: 10px;
+}
+
+.project-input-field {
+	font-style: normal;
+    font-weight: normal;
+    color: #444444;
+    font-size: 140%;
+    background-color: #edf3f7;
+    border: solid 1px #cfdce5;
+    border-radius: 5px;
+    padding: 10px !important;
+    font-size: 16px;
+    font-size: 1.0rem;
+    color: #464646;
+    font-size: 0.875rem !important;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0.5em 0em 0em 0em !important;
+    font: 11px BlinkMacSystemFont;
+}
+
+.bt-txt {
+	font-size: 20px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    background-color: #f46d24 !important;
+    color: #fff;
+    border: solid 1px #f46d24 !important;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+    white-space: nowrap;
+    display: inline-block;
+    -webkit-appearance: none;
+    padding: 10px 10px !important;
+    margin: 10px 0 !important;
+    width: 35% !important;
+    line-height: 27px;
+}
+
+.phone-input-three {
+    width: 58px;
+    margin-right: 19px !important;
+}
+
+.float-left.phone-input-divider {
+    margin-right: 10px;
+    padding-top: 12px;
+}
+
+.red-start {
+    padding-left: 3px;
+    color: red;
+    font-weight: bolder;
+}
+
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+.blue    { background-color: #edf3f7 !important; }
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}

@@ -1,0 +1,74 @@
+<ion-view view-title="Home">
+  <ion-content>
+
+  	<div class="project-main-blk">
+      <form ng-submit="submitProject()">
+
+    		<h4 class="project-header2">Please fill your project details</h4>
+        <div ng-message="required" class="msg-blk success-msg" ng-show="success == true">Successfully Logged in!</div>
+        <div ng-message="required" class="msg-blk error-msg" ng-show="success == false">Oops! Registration failed
+          <ul class="error-listing">
+            <li ng-repeat="error in errors">{{error[0]}}</li>
+          </ul>
+        </div>
+        <div class="list project-fields">
+
+        	<div class="project-input-blk">
+            <label class="project-input-label">Am looking for a </label>
+            <angucomplete-alt id="home-category"
+			              placeholder="Search for Category"
+			              pause="100"
+			              selected-object="categorySelected"
+			              local-data="categories"
+			              search-fields="category"
+			              title-field="category"
+			              minlength="1"
+			              initial-value="selectedCategory.title"
+			              input-class="form-control form-control-small"/>
+          </div>
+
+          <div class="project-input-blk" ng-show="secondaryServices.length">
+            <label class="project-input-label">Select Service</label>
+            <div class="styled-select blue semi-square">
+	            <select ng-model="newProjectDetails.secondaryService">
+					      <option ng-repeat="subCategory in secondaryServices">{{subCategory.name}}</option>
+					    </select>
+				    </div>
+          </div>
+
+          <div class="project-input-blk">
+            <label class="project-input-label">Brief description about service</label>
+            <textarea class="project-input-field width-full" type="text" ng-model="newProjectDetails.briefDescription"></textarea>
+          </div>
+
+          <div class="register-input-blk">
+            <label class="register-input-label">Location Zipcode</label><span class="red-start">*</span>
+            <input class="register-input-field" type="text" ng-model="newProjectDetails.zipcode">
+          </div>
+
+          <div class="project-input-blk">
+            <label class="project-input-label">Best Time to contact</label>
+            <div>
+	            <div class="float-left">
+		            <ionic-datepicker input-obj="datepickerObject">
+								  <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:datepickerObject.dateFormat}}</button>
+								</ionic-datepicker>
+							</div>
+							<div class="float-left pad-left-1em">
+								<ionic-timepicker input-obj="timePickerObject">
+								  <button class="button button-block button-positive overflowShow">
+								    <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
+								  </button>
+								</ionic-timepicker>
+							</div>
+						</div>
+          </div>
+          
+        	<div class="clear-both"></div>
+          <button class="button button-block button-positive bt-txt" type="submit">SEND</button>
+
+        </div>
+      </form>
+    </div>
+	</ion-content>
+</ion-view>

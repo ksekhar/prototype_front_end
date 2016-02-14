@@ -1,19 +1,19 @@
-<ion-view view-title="Home">  
+<ion-view view-title="Home">
   <ion-content>
 
   	<div class="auto-completer">
-	  	<angucomplete-alt id="ex1"
+	  	<angucomplete-alt id="home-category"
 	              placeholder="Search for Category"
 	              pause="100"
-	              selected-object="selectedCategory"
-	              local-data="categories"
-	              search-fields="category"
-	              title-field="category"
+	              selected-object="categorySelected"
+	              local-data="allServices"
+	              search-fields="name"
+	              title-field="name"
 	              minlength="1"
 	              input-class="form-control form-control-small"/>
   	</div>
 
-  	<div class='main-cat-main-blk'>
+  	<!-- <div class='main-cat-main-blk'>
 	  	<div class="row main-cat-row">
 		  <div class="col col-50 main-cat-list cat-odd">ELECTRICITY</div>
 		  <div class="col col-50 main-cat-list cat-even">HANDYMAN</div>
@@ -21,6 +21,11 @@
 		<div class="row">
 		  <div class="col col-50 main-cat-list cat-odd">PLUMBING</div>
 		  <div class="col col-50 main-cat-list cat-even">CARPENTERING</div>
+		</div> -->
+		<div class="services-blk">
+			<div ng-repeat="service in primaryServices" ng-class-odd="'cat-odd'" ng-class-even="'cat-even'" class="float-left main-cat-list">
+				{{service.name}}
+			</div>
 		</div>
 	</div>
   </ion-content>
