@@ -18,3 +18,12 @@ angular.module('starter.projects.services', [])
 		}
 	}
 })
+.factory('projects', function($http) {
+	return {
+		create: function(){
+			return $http.post("http://localhost:3000/projects").success(function(response){
+				return response.success;
+			});
+		}
+	}
+});

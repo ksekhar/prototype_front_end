@@ -2,6 +2,7 @@ angular.module('starter.authentication.controllers', [])
 
 .controller('AuthenticationCtrl', function($rootScope, $scope, $http, $stateParams, $state, services, userSession) {
 	$scope.loginData = {};
+  $scope.loginRequestSource = $stateParams.source;
   $scope.doLogin = function() {
   	userSession.login({email : $scope.loginData.username, password: $scope.loginData.password}).success(function(response) {
   		$scope.success = response.success;
@@ -29,7 +30,13 @@ angular.module('starter.authentication.controllers', [])
                                                       password_confirmation: $scope.registerData.password_confirm};
 
      userSession.login(registerDetails).success(function(response) {
-	  		$scope.success = response.success;
+        $scope.success = response.success;
+        if($scope.success && $scope.loginRequestSource !== undefined && $scope.loginRequestSource === 'projectNew') {
+          alert('From Project');
+         $ionicHistory.goBack(); 
+        }
+
+	  		
 	  	});
 	  	$state.go('app.home');
   }

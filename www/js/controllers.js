@@ -5,11 +5,9 @@ angular.module('starter.controllers', [])
   $scope.logout = function() {
     userSession.logout().success(function(response) {
     });
-    $rootScope.username = window.localStorage.getItem('userDetails');
-    $ionicHistory.nextViewOptions({
-        historyRoot: true
-    });
-    $state.go('app.home', {}, { location: 'replace', notify: false });
+    $rootScope.username = null;
+    // $rootScope.$apply(function(){$rootScope.username = null;});
+    $state.go('app.home', {}, { reload: true });
   }
 })
 

@@ -1,6 +1,6 @@
 angular.module('starter.projects.controllers', [])
 
-.controller('ProjectsCtrl', function($scope, $http, $stateParams, $state, services) {
+.controller('ProjectsCtrl', function($scope, $http, $stateParams, $state, $cookies, services, projects) {
   $scope.selectedCategory = $stateParams.selectedCategory;
   // $scope.selectedCategory.originalObject.id
   services.secondaryServices(1).success(function(response){ 
@@ -78,7 +78,21 @@ angular.module('starter.projects.controllers', [])
       };
 
       $scope.submitProject = function() {
-        $state.go('app.customer_login');
+        var projectDetails = {};
+        if($cookies.get('auth') !== undefined && $cookies.get('auth').length) {
+          projects.create().success(function(response) { 
+            if(response.success) {
+                $state.go('projects.show', {project_id: response.project_id})
+            }
+            else {
+
+            }
+
+          });
+        } else {
+          $state.go('app.customer_login', {source: 'projectNew'});
+        }
+        
       }
 
 });

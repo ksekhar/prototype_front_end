@@ -44,6 +44,7 @@ angular.module('starter', ["ngCookies", 'ionic', 'starter.projects.services', 's
 
   .state('app.customer_login', {
     url: '/customer_login',
+    params: {source: null},
     views: {
       'menuContent': {
         templateUrl: 'js/authentication/login.html',
@@ -73,6 +74,12 @@ angular.module('starter', ["ngCookies", 'ionic', 'starter.projects.services', 's
     url: '/new',
     params: {'selectedCategory': null},
     templateUrl: 'js/projects/templates/new.html',
+    controller: 'ProjectsCtrl'
+  })
+
+  .state('projects.show', {
+    url: '/show/:project_id',
+    templateUrl: 'js/projects/templates/show.html',
     controller: 'ProjectsCtrl'
   })
 

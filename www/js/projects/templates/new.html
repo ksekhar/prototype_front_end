@@ -51,14 +51,14 @@
             <div>
 	            <div class="float-left">
 		            <ionic-datepicker input-obj="datepickerObject">
-								  <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:datepickerObject.dateFormat}}</button>
+								  <label class="button button-block button-positive"> {{datepickerObject.inputDate | date:datepickerObject.dateFormat}}</label>
 								</ionic-datepicker>
 							</div>
 							<div class="float-left pad-left-1em">
 								<ionic-timepicker input-obj="timePickerObject">
-								  <button class="button button-block button-positive overflowShow">
+								  <label class="button button-block button-positive overflowShow">
 								    <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
-								  </button>
+								  </label>
 								</ionic-timepicker>
 							</div>
 						</div>
