@@ -5,7 +5,6 @@
       <form ng-submit="submitProject()">
 
     		<h4 class="project-header2">Please fill your project details</h4>
-        <div ng-message="required" class="msg-blk success-msg" ng-show="success == true">Successfully Logged in!</div>
         <div ng-message="required" class="msg-blk error-msg" ng-show="success == false">Oops! Registration failed
           <ul class="error-listing">
             <li ng-repeat="error in errors">{{error[0]}}</li>
@@ -63,8 +62,11 @@
 							</div>
 						</div>
           </div>
-          
+
         	<div class="clear-both"></div>
+          <div ng-message="required" class="msg-blk success-msg" ng-show="success == true">
+            We got your request and we are working hard to find the best pro's for you. We will get back to you in a while.
+          </div>
           <button class="button button-block button-positive bt-txt" type="submit">SEND</button>
 
         </div>

@@ -3,7 +3,7 @@ angular.module('starter.projects.controllers', [])
 .controller('ProjectsCtrl', function($scope, $http, $stateParams, $state, $cookies, services, projects) {
   $scope.selectedCategory = $stateParams.selectedCategory;
   // $scope.selectedCategory.originalObject.id
-  services.secondaryServices(1).success(function(response){ 
+  services.secondaryServices(1).success(function(response){
     $scope.secondaryServices = response.services;
   });
   $scope.contactDate = null;
@@ -77,22 +77,25 @@ angular.module('starter.projects.controllers', [])
         }
       };
 
-      $scope.submitProject = function() {
-        var projectDetails = {};
-        if($cookies.get('auth') !== undefined && $cookies.get('auth').length) {
-          projects.create().success(function(response) { 
-            if(response.success) {
-                $state.go('projects.show', {project_id: response.project_id})
-            }
-            else {
+    $scope.submitProject = function() {
+      var projectDetails = {primary_service_id: 1, secondary_service_id: $scope.newProjectDetails.secondaryService,
+                            description: $scope.newProjectDetails.briefDescription, zipcode: $scope.newProjectDetails.zipcode,
+                            contact_date: $scope.newProjectDetails.date, contact_time: $scope.newProjectDetails.time};
+      if($cookies.get('auth') !== undefined && $cookies.get('auth').length) {
+        projects.create(projectDetails).success(function(response) {
+          if(response.success) {
+            $scope.success = true;
+              // $state.go('projects.show', {project_id: response.project_id})
+          }
+          else {
 
-            }
+          }
 
-          });
-        } else {
-          $state.go('app.customer_login', {source: 'projectNew'});
-        }
-        
+        });
+      } else {
+        $state.go('app.customer_login', {source: 'projectNew'});
       }
+
+    }
 
 });
